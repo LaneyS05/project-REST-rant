@@ -25,3 +25,29 @@ do another git commit
 run git add .
 run git commit -m "Adding 404 page route"
 run git push origin master
+Create a new folder called "controllers"
+In the controllers folder, create a file called "places.js"
+In the places.js file, add code to create and export an express.Router()
+in index.js create "app.use()"
+inside the "app.use()" type "'/places', require('./controllers/places')"
+in places.js create "router.get()"
+inside "router.get()" create an arrow function "'/', (req, res) => {}"
+inside the function above make a res.send()
+inside res.send() put "'GET /places'"
+do another commit
+run git add .
+run git commit -m "Adding places controller"
+run git push origin master
+Run the nodemon in the terminal
+see if "http://localhost:3000" says "Hello world!"
+see if "http://localhost:3000/places" says "GET /places"
+see if "http://localhost:3000/not-a-defined-route" says "404 Page"
+Open Postman program and select create a request
+Open a new request in Postman and type in http://localhost:3000
+then press the send button
+add final commit
+run git add .
+run git commit -m "Adding remaining stub routes"
+run git push origin master
+
+make sure to run nodemon befor running the page
