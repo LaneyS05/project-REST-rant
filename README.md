@@ -78,3 +78,14 @@ inside "error404" make a "return()"
 inside "return()" make a "Def", "main", "h1" and "p" tag
 inside the "h1" tag type "404: page not found"
 inside "p" tag type "Oops, sorry, we can't find this page!"
+add commit
+run git add .
+run git commit -m "Adding 404 page view"
+run git push origin master
+create a "places" folder inside the "views" folder
+inside the "places" folder make a file called "index.jsx"
+inside "index.jsx" create a "require('react')" and "require('./default')"
+next create a function called "places"
+inside "places" create a "return()"
+inside thr "return()" make a "Def", "mian" and "h1"
+inside "h1" type "Places"
