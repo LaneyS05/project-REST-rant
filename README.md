@@ -71,3 +71,10 @@ run git add .
 run git commit -m "Adding home page view"
 run git push origin master
 make sure to run nodemon befor running the page
+Create a file called "error404.jsx" inside your "views" folder
+Inside your "error404.jsx" file, import "React" and the "Def"
+create a function called "error404"
+inside "error404" make a "return()"
+inside "return()" make a "Def", "main", "h1" and "p" tag
+inside the "h1" tag type "404: page not found"
+inside "p" tag type "Oops, sorry, we can't find this page!"
