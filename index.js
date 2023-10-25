@@ -4,6 +4,10 @@ const app = express()
 
 app.use('/places', require('./controllers/places'))
 
+app.get('/places/new', (req, res) => {
+    res.send('new places')
+})
+
 app.get('/', (req, res) => {
     res.send('Hello world!')
 })

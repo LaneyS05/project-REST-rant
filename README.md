@@ -45,9 +45,21 @@ see if "http://localhost:3000/not-a-defined-route" says "404 Page"
 Open Postman program and select create a request
 Open a new request in Postman and type in http://localhost:3000
 then press the send button
-add final commit
+add commit
 run git add .
 run git commit -m "Adding remaining stub routes"
+run git push origin master
+add new places page
+in index.js create another app.get()
+inside the new app.get() add '/places/new' and '(res, req)'
+create an arrow function with 'res.send()' inside
+run the command "npm i react express-react-views" on the terminal
+Create a "views" folder inside the the rest-rant
+inside the views folder create a new file called "default.jsx"
+inside "default.jsx" create a 'require react' and a new function called "Def"
+add commit
+run git add .
+run git commit -m "Adding default view for layout"
 run git push origin master
 
 make sure to run nodemon befor running the page
