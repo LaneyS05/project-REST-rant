@@ -61,5 +61,13 @@ add commit
 run git add .
 run git commit -m "Adding default view for layout"
 run git push origin master
-
+inside "views" folder create a new file called "home.jsx"
+inside "home.jsx" import React and the Def function using "require('react')" and "require('./default')"
+make a new function called "home"
+place a "Def", "main" and "h1" tag inside the "home" function
+inside the "h1" type "home"
+add commit
+run git add .
+run git commit -m "Adding home page view"
+run git push origin master
 make sure to run nodemon befor running the page
