@@ -89,3 +89,18 @@ next create a function called "places"
 inside "places" create a "return()"
 inside thr "return()" make a "Def", "mian" and "h1"
 inside "h1" type "Places"
+create mock data
+inside of "places.js" create an array called "places" with objects such as "name", "location", "city", "state" and a pic if wanted
+inside of "places.js" change "res.send()" to "res.render()"
+pass "places" into "res.render()"
+Go back to views/places/index.jsx and create a function called "index"
+call the parameter "data" for the "index" function
+format the data in the places array into HTML
+make map.places an arrow function
+return() "div", "h2" and a "img" tag
+return() a second time and place "main" and "h1" tags inside
+place {placesFormatted} under the "h1" tag
+add commit
+git add .
+git commit -m "Adding places view with mock data"
+git push origin master
