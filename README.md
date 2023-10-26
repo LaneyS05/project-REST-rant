@@ -104,3 +104,33 @@ add commit
 git add .
 git commit -m "Adding places view with mock data"
 git push origin master
+adding css
+Get a CDN link to the latest version of Bootstrap
+link the stylesheet and put the CND link inside a href
+add the button named Places to the "home.jsx"
+make a public folder
+inside the public folder make a main.css
+inside main.css give h1 text-aline center and a color of blue
+link the main.css under the CDN link
+add commit
+git add .
+git commit -m "Adding styles"
+git push origin main
+more images go to pixabay and pic out a free home page image and a 404 image
+use the image tag to place the images
+using bootstap for the index page
+pick out two more images from pixabay and add them to "index.jsx"
+make a "div" with the className of "col-sm-6"
+and a "div" with the className of "row"
+create two "p" tags with the className of "text-center"
+inside the first"p" tage place {place.cuisines}
+inside the second "p" tag place Located in {place.city}, {place.state}
+git add .
+git commit -m "Adding Bootstrap grid to index page"
+git push origin main
+
+IMPORTANT
+the spagetti image is from Pixabay and was made by Divily
+the brick wall is from Pixabay and was made by Pexels
+the error404 image is from Pixabay and was made by aitoff
+the tea-cat is from Pixabay and was made by yukiqwa
