@@ -115,7 +115,7 @@ link the main.css under the CDN link
 add commit
 git add .
 git commit -m "Adding styles"
-git push origin main
+git push origin master
 more images go to pixabay and pic out a free home page image and a 404 image
 use the image tag to place the images
 using bootstap for the index page
@@ -127,10 +127,36 @@ inside the first"p" tage place {place.cuisines}
 inside the second "p" tag place Located in {place.city}, {place.state}
 git add .
 git commit -m "Adding Bootstrap grid to index page"
-git push origin main
+git push origin master
 
 IMPORTANT
 the spagetti image is from Pixabay and was made by Divily
 the brick wall is from Pixabay and was made by Pexels
 the error404 image is from Pixabay and was made by aitoff
 the tea-cat is from Pixabay and was made by yukiqwa
+
+in veiws folder go to places folder and create a new file called "new.jsx"
+inside "new.jsx" make a "require('react')" and "require('../default')"
+next make a new function called "new_form"
+inside the function make a return()
+inside return create a "Def", "main" and "h1" tag
+next go to "places.js" and crreate another "router.get()"
+inside the "router.get()" make a new "render('places/new')"
+add commit
+git add .
+git commit -m "Adding and rendering a new view"
+git push origin master
+Make a Form
+add Post method to new.jsx
+inside the post method create a "lable" and "input"
+Make a "name lable", "pic lable", "city lable", "state lable" and a "Cuisines lable"
+Make a "name input", "pic input", "city input", "state input" and a "Cuisines input"
+make the "name input" and "Cuisines input" and set them to "required"
+Fancy Up Your Form
+Add the class "form-group" to each of the "div" tags
+Add the class "form-control" to each "input" tag
+Add the classes "btn and btn-primary" to the "submit button"
+add commit
+git add .
+git commit -m "Jazzed up form page"
+git push origin master
