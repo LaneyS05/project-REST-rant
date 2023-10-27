@@ -9,13 +9,9 @@ app.use(express.static('public'))
 
 app.use('/places', require('./controllers/places'))
 
-app.get('/places/new', (req, res) => {
-    res.send('new places')
-})
-
 app.get('/', (req, res) => {
     res.render('Home')
-})
+}) 
 
 app.get('*', (req, res) => {
     res.render('error404')
