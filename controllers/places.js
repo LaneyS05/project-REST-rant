@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const places = require('../models/places')
+const places = require('../models/places.js')
 
 router.get('/', (req, res) => {  
     res.render('places/index', {places})
@@ -12,7 +12,6 @@ router.get('/new', (req, res) => {
 router.post('/', (req, res) => {
   console.log(req.body)
   if (!req.body.pic) {
-    // Default image if one is not provided
     req.body.pic = '/images/pizza.jpg'
   }
   if (!req.body.city) {
