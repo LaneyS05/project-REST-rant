@@ -38,3 +38,15 @@ nav a:hover {
     color: pink;
     text-decoration: none;
 }
+
+#showdiv {
+    display: inline;
+}
+
+#show {
+    color: skyblue;
+}
+
+p {
+   
+}

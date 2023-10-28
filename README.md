@@ -160,3 +160,4 @@ add commit
 git add .
 git commit -m "Jazzed up form page"
 git push origin master
+add nav bar
