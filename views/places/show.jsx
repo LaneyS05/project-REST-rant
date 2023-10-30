@@ -13,7 +13,7 @@ function show(data) {
         </div>
         <div id="showdiv">
           <h2 id="show">Descrip</h2>
-          <p>Located in Phoenix, AZ and serving Coffee, Bakery</p>
+          <p>{data.place.cuisines}</p>
         </div>
         <div id="showdiv">
           <h2 id="show">Comments</h2>

@@ -161,3 +161,42 @@ git add .
 git commit -m "Jazzed up form page"
 git push origin master
 add nav bar
+in the nav bar make a list of items such as home, places and new place
+add css to make it look pretty
+add commit
+git add .
+git commit -m "Navbar with style"
+git push origin master
+Connect the Show Route
+add a new file called show.jsx
+inside show.jsx require('react') and require('../default.jsx') and a show function
+Open the places.js controller
+create a router.get('/:id', (req, res) => {})...
+render places/show
+add if else statements
+In the index.jsx file, make each place name a link
+add commit
+git add .
+git commit -m "Show route connected"
+git push origin master
+Fill Out the Show Page
+In the show.jsx file, display all the information about a place
+use def main and h1 tags
+Add a Rating section and a Comments section and
+add css
+Implement Method Override
+install the method-override npm
+Open your index.js file. At the top of the file, require the method-override package
+make app.use method-override
+Make Edit and Delete Buttons these buttond shoud be in show.jsx
+in the form above the button add the attributes action and method to form. Set the method attribute to POST
+call res.render() from the places.js controller
+Implement Your Delete Route
+make router.delete('/:id', (req, res) => {})
+inside use else if in the last else statment place
+places.splice(id, 1)
+res.redirect('/places')
+add commit
+git add .
+git commit -m "Delete functionality implemented"
+git push origin master
