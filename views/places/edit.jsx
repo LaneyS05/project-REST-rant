@@ -4,61 +4,64 @@ const Def = require("../default.jsx");
 function edit_form(data) {
   return (
     <Def>
-      <form method="POST" action={`/places/${data.place.id}?_method=PUT`}>
-        <div className="row">
-          <div className="form-groupup col-sm-6">
-            <label htmlFor="name">Place Name</label>
-            <input
-              className="form-control"
-              id="name"
-              name="name"
-              value={data.place.name}
-              required
-            />
+      <main>
+        <h1>Edit Place</h1>
+        <form action={`/places/${data.place.id}?_method=PUT`} method="POST">
+          <div className="row">
+            <div className="form-groupup col-sm-6">
+              <label htmlFor="name">Place Name</label>
+              <input
+                className="form-control"
+                id="name"
+                name="name"
+                value={data.place.name}
+                required
+              />
+            </div>
+            <div className="form-groupup col-sm-6">
+              <label htmlFor="name">Image</label>
+              <input
+                className="form-control"
+                id="pic"
+                name="pic"
+                value={data.place.pic}
+                required
+              />
+            </div>
+            <div className="form-groupup col-sm-6">
+              <label htmlFor="name">City</label>
+              <input
+                className="form-control"
+                id="city"
+                name="city"
+                value={data.place.city}
+                required
+              />
+            </div>
+            <div className="form-groupup col-sm-6">
+              <label htmlFor="name">State</label>
+              <input
+                className="form-control"
+                id="state"
+                name="state"
+                value={data.place.state}
+                required
+              />
+            </div>
+            <div className="form-groupup col-sm-6">
+              <label htmlFor="name">cuisines</label>
+              <input
+                className="form-control"
+                id="cuisines"
+                name="cuisines"
+                value={data.place.cuisines}
+                required
+              />
+            </div>
           </div>
-        </div>
-        <div className="form-groupup col-sm-6">
-          <label htmlFor="name">Place Picture</label>
-          <input
-            className="form-control"
-            id="name"
-            name="name"
-            value={data.place.pic}
-            required
-          />
-        </div>
-        <div className="form-groupup col-sm-6">
-          <label htmlFor="name">City</label>
-          <input
-            className="form-control"
-            id="name"
-            name="name"
-            value={data.place.pic}
-            required
-          />
-        </div>
-        <div className="form-groupup col-sm-6">
-          <label htmlFor="name">State</label>
-          <input
-            className="form-control"
-            id="name"
-            name="name"
-            value={data.place.pic}
-            required
-          />
-        </div>
-        <div className="form-groupup col-sm-6">
-          <label htmlFor="name">cuisines</label>
-          <input
-            className="form-control"
-            id="name"
-            name="name"
-            value={data.place.pic}
-            required
-          />
-        </div>
-        <input type="submit" />
-      </form>
+          <input type="submit" />
+        </form>
+      </main>
     </Def>
   );
 }
