@@ -5,15 +5,10 @@ const placeSchema = new Schema({
   name: { type: String, required: true },
   pic: String,
   cuisines: { type: String, required: true },
-  city: { type: String, default: "Anytown" },
+  city: { type: String, default: "anytown" },
   state: { type: String, default: "USA" },
-  founed: Number,
+  founded: Number,
 });
 
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-module.exports = mongoose.model("Place", placeSchema);
-module.exports.Place = require("./places");
+const Place = mongoose.model("Place", placeSchema);
+module.exports = Place;

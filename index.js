@@ -1,7 +1,7 @@
 // DEPENDENCIES
 const express = require("express");
 const methodOverride = require("method-override");
-//const placesController = require("./controllers/places.js"); //<-- nodemon will not run if this is placed
+const placesController = require("./controllers/places.js"); //<-- nodemon will not run if this is placed
 const mongoose = require("mongoose");
 
 // CONFIGURATION
@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
 //Places
-//app.use("/places", placesController); //<-- nodemon will not run if this is placed
+app.use("/places", placesController); //<-- nodemon will not run if this is placed
 
 // ROUTES
 app.get("/", (req, res) => {

@@ -5,8 +5,8 @@ const db = require("../models");
 places.get("/", async (req, res) => {
   const allPlaces = await db.find();
 
-  res.render("index", {
-    breads: allPlaces,
+  res.render("places/index", {
+    places: allPlaces,
     title: "Places Page",
   });
 });
@@ -16,28 +16,12 @@ places.post("/", (req, res) => {
   res.redirect("/places");
 });
 
-places.get("/:id", (req, res) => {
-  db.findById(req.params.id)
-    .then((foundPlace) => {
-      res.render("show", { place: foundPlace });
-    })
-    .catch((err) => {
-      console.log("err", err);
-      res.render("error404");
-    });
-});
-
-//Everything below is not being used rn
 places.get("/new", (req, res) => {
   res.render("places/new");
 });
 
-places.put("/:id", (req, res) => {
-  res.send("PUT /places/:id stub");
-});
-
-places.delete("/:id", (req, res) => {
-  res.send("DELETE /places/:id stub");
+places.delete("/:id/rant/:rantId", (req, res) => {
+  res.send("GET /places/:id/rant/:rantId stub");
 });
 
 places.get("/:id/edit", (req, res) => {
@@ -48,8 +32,23 @@ places.post("/:id/rant", (req, res) => {
   res.send("GET /places/:id/rant stub");
 });
 
-places.delete("/:id/rant/:rantId", (req, res) => {
-  res.send("GET /places/:id/rant/:rantId stub");
+places.get("/:id", (req, res) => {
+  db.findById(req.params.id)
+    .then((foundPlace) => {
+      res.render("places/show", { place: foundPlace });
+    })
+    .catch((err) => {
+      console.log("err", err);
+      res.render("error404");
+    });
+});
+
+places.put("/:id", (req, res) => {
+  res.send("PUT /places/:id stub");
+});
+
+places.delete("/:id", (req, res) => {
+  res.send("DELETE /places/:id stub");
 });
 
 module.exports = places;
