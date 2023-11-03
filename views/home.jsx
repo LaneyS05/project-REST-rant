@@ -8,6 +8,7 @@ function home() {
         <h1>REST-Rant</h1>
         <div>
           <img
+            id="homeimg"
             src="/images/spaghetti-2931846_640.jpg"
             alt="spagetti from pixabay by Divily"
           />

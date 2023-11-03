@@ -47,6 +47,16 @@ nav a:hover {
     color: skyblue;
 }
 
+img {
+    width: 600px;
+    height: 500px;
+}
+
+#homeimg {
+    width: 640px;
+    height: 360px;
+}
+
 p {
    
 }
