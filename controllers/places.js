@@ -16,8 +16,9 @@ places.post("/", (req, res) => {
     // Default image if one is not provided
     req.body.pic = "http://placekitten.com/400/400";
   }
-  db.create(req.body);
-  res.redirect("/places");
+  db.create(req.body).then(() => {
+    res.redirect("/places");
+  });
 });
 
 places.get("/new", (req, res) => {
