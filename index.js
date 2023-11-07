@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
 //Places
-app.use("/places", placesController); //<-- nodemon will not run if this is placed
+app.use("/places", placesController);
 
 // ROUTES
 app.get("/", (req, res) => {

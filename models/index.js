@@ -1,5 +1,6 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
+
 const { Schema } = mongoose;
 
 const placeSchema = new Schema({
@@ -13,6 +14,7 @@ const placeSchema = new Schema({
     min: [1673, "Surly not that old?!"],
     max: [new Date().getFullYear(), "Hey, this  year is in the future!"],
   },
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
 });
 
 placeSchema.methods.showEstablished = function () {
@@ -21,3 +23,4 @@ placeSchema.methods.showEstablished = function () {
 
 const Place = mongoose.model("Place", placeSchema);
 module.exports = Place;
+module.exports.Comment = require("./comment");
