@@ -1,12 +1,16 @@
-const db = require("../models");
+const dbconnect = require("../models");
+const Place = require("../models/places");
+const Comment = require("../models/comment");
 
 // To use await, we need an async function.
 async function seed() {
+  await dbconnect();
+
   // Get the place, H-Thai-ML
-  let place = await db.Place.findOne({ name: "H-Thai-ML" });
+  let place = await Place.findOne({ name: "H-Thai-ML" });
 
   // Create a fake sample comment.
-  let comment = await db.Comment.create({
+  let comment = await Comment.create({
     author: "Famished Fran",
     rant: false,
     stars: 5.0,
@@ -22,5 +26,4 @@ async function seed() {
   // Exit the program
   process.exit();
 }
-
 seed();

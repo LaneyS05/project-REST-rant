@@ -1,9 +1,11 @@
 const express = require("express");
 const places = express.Router();
+const place = require("../models/places.js");
+const Comment = require("../models/comment");
 const db = require("../models");
 
 places.get("/", async (req, res) => {
-  const allPlaces = await db.find();
+  const allPlaces = await db.Place.find();
 
   res.render("places/index", {
     places: allPlaces,
@@ -16,7 +18,7 @@ places.post("/", (req, res) => {
     // Default image if one is not provided
     req.body.pic = "http://placekitten.com/400/400";
   }
-  db.create(req.body).then(() => {
+  create(req.body).then(() => {
     res.redirect("/places");
   });
 });
@@ -33,10 +35,10 @@ places.post("/:id/comment", (req, res) => {
   console.log(req.body);
   db.Place.findById(req.params.id)
     .then((place) => {
-      db.Comment.create(req.body)
+      Comment.create(req.body)
         .then((comment) => {
-          place.comments.push(comment.id);
-          place.save().then(() => {
+          db.place.comments.push(comment.id);
+          db.place.save().then(() => {
             res.redirect(`/places/${req.params.id}`);
           });
         })
@@ -58,10 +60,10 @@ places.post("/:id/rant", (req, res) => {
 });
 
 places.get("/:id", (req, res) => {
-  db.findById(req.params.id)
+  db.Place.findById(req.params.id)
     .populate("comments")
     .then((place) => {
-      console.log(place.comments);
+      //console.log(place.comments);
       res.render("places/show", { place });
     })
     .catch((err) => {

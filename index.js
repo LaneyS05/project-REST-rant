@@ -3,6 +3,7 @@ const express = require("express");
 const methodOverride = require("method-override");
 const placesController = require("./controllers/places.js"); //<-- nodemon will not run if this is placed
 const mongoose = require("mongoose");
+const dbconnect = require("./models");
 
 // CONFIGURATION
 require("dotenv").config();
@@ -32,8 +33,7 @@ app.get("*", (req, res) => {
 
 const start = async () => {
   try {
-    await mongoose.connect(MONGO_URI);
-    console.log("connected to Mongo");
+    await dbconnect();
   } catch (e) {
     console.log("error");
   }
@@ -44,4 +44,5 @@ const start = async () => {
   });
 };
 start();
+
 module.exports = app;
