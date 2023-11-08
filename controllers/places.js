@@ -1,6 +1,6 @@
 const express = require("express");
 const places = express.Router();
-const place = require("../models/places.js");
+//const place = require("../models/places.js");
 const Comment = require("../models/comment");
 const db = require("../models");
 
@@ -32,15 +32,24 @@ places.delete("/:id/rant/:rantId", (req, res) => {
 });
 
 places.post("/:id/comment", (req, res) => {
-  console.log(req.body);
+  console.log("post comment", req.body);
+  if (req.body.author === "") {
+    req.body.author = undefined;
+  }
+  req.body.rant = req.body.rant ? true : false;
   db.Place.findById(req.params.id)
     .then((place) => {
-      Comment.create(req.body)
+      db.Comment.create(req.body)
         .then((comment) => {
-          db.place.comments.push(comment.id);
-          db.place.save().then(() => {
-            res.redirect(`/places/${req.params.id}`);
-          });
+          place.comments.push(comment.id);
+          place
+            .save()
+            .then(() => {
+              res.redirect(`/places/${req.params.id}`);
+            })
+            .catch((err) => {
+              res.render("error404");
+            });
         })
         .catch((err) => {
           res.render("error404");
@@ -72,12 +81,12 @@ places.get("/:id", (req, res) => {
     });
 });
 
-places.put("/:id", (req, res) => {
-  res.send("PUT /places/:id stub");
-});
-
 places.delete("/:id", (req, res) => {
   res.send("DELETE /places/:id stub");
+});
+
+places.put("/:id", (req, res) => {
+  res.send("PUT /places/:id stub");
 });
 
 module.exports = places;
