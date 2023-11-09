@@ -27,12 +27,53 @@ places.get("/new", (req, res) => {
   res.render("places/new");
 });
 
-places.delete("/:id/rant/:rantId", (req, res) => {
-  res.send("GET /places/:id/rant/:rantId stub");
+places.get("/:id", (req, res) => {
+  db.Place.findById(req.params.id)
+    .populate("comments")
+    .then((place) => {
+      //console.log(place.comments);
+      res.render("places/show", { place });
+    })
+    .catch((err) => {
+      console.log("err", err);
+      res.render("error404");
+    });
+});
+
+places.put("/:id", (req, res) => {
+  db.Place.findByIdAndUpdate(req.params.id, req.body)
+    .then(() => {
+      res.redirect(`/places/${req.params.id}`);
+    })
+    .catch((err) => {
+      console.log("err", err);
+      res.render("error404");
+    });
+});
+
+places.delete("/:id", (req, res) => {
+  db.Place.findByIdAndDelete(req.params.id)
+    .then((place) => {
+      res.redirect("/places", { place });
+    })
+    .catch((err) => {
+      console.log("err", err);
+      res.render("error404");
+    });
+});
+
+places.get("/:id/edit", (req, res) => {
+  db.Place.findById(req.params.id)
+    .then((place) => {
+      res.render("places/edit", { place });
+    })
+    .catch((err) => {
+      res.render("error404");
+    });
 });
 
 places.post("/:id/comment", (req, res) => {
-  console.log("post comment", req.body);
+  //console.log("post comment", req.body);
   if (req.body.author === "") {
     req.body.author = undefined;
   }
@@ -60,53 +101,8 @@ places.post("/:id/comment", (req, res) => {
     });
 });
 
-places.get("/:id/edit", (req, res) => {
-  db.Place.findById(req.params.id)
-    .then((place) => {
-      res.render("places/edit", { place });
-    })
-    .catch((err) => {
-      res.render("error404");
-    });
-});
-
 places.post("/:id/rant", (req, res) => {
   res.send("GET /places/:id/rant stub");
-});
-
-places.get("/:id", (req, res) => {
-  db.Place.findById(req.params.id)
-    .populate("comments")
-    .then((place) => {
-      //console.log(place.comments);
-      res.render("places/show", { place });
-    })
-    .catch((err) => {
-      console.log("err", err);
-      res.render("error404");
-    });
-});
-
-places.delete("/:id", (req, res) => {
-  db.Place.findByIdAndDelete(req.params.id)
-    .then((place) => {
-      res.redirect("/places");
-    })
-    .catch((err) => {
-      console.log("err", err);
-      res.render("error404");
-    });
-});
-
-places.put("/:id", (req, res) => {
-  db.Place.findByIdAndUpdate(req.params.id, req.body)
-    .then(() => {
-      res.redirect(`/places/${req.params.id}`);
-    })
-    .catch((err) => {
-      console.log("err", err);
-      res.render("error404");
-    });
 });
 
 module.exports = places;
