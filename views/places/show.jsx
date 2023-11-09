@@ -51,7 +51,7 @@ function show(data) {
           <div className="col-sm-6">
             <div id="showdiv">
               <h2 id="show">Rating</h2>
-              <p>Not Rated</p>
+              {rating}
             </div>
             <div id="showdiv">
               <h2 id="show">Descrip</h2>
