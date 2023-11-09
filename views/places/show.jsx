@@ -11,7 +11,7 @@ function show(data) {
     let averageRating = Math.round(sumRatings / data.place.comments.length);
     let stars = "";
     for (let i = 0; i < averageRating; i++) {
-      stars += "⭐️";
+      stars += "⭐";
     }
     rating = <h3>{stars} stars</h3>;
     comments = data.place.comments.map((c) => {
