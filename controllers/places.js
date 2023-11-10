@@ -14,13 +14,30 @@ places.get("/", async (req, res) => {
 });
 
 places.post("/", (req, res) => {
-  if (!req.body.pic) {
-    // Default image if one is not provided
-    req.body.pic = "http://placekitten.com/400/400";
+  if (req.body.pic === "") {
+    req.body.pic = undefined;
   }
-  create(req.body).then(() => {
-    res.redirect("/places");
-  });
+  if (req.body.city === "") {
+    req.body.city = undefined;
+  }
+  if (req.body.state === "") {
+    req.body.state = undefined;
+  }
+  db.Place.create(req.body)
+    .then(() => {
+      res.redirect("/places");
+    })
+    .catch((err) => {
+      if (err && err.name == "ValidationError") {
+        let message = "Validation Error: ";
+        for (var field in err.errors) {
+          message += `${field} was ${err.errors[field].value}. ${err.errors[field].message}\n`;
+        }
+        res.render("places/new", { message });
+      } else {
+        res.render("error404");
+      }
+    });
 });
 
 places.get("/new", (req, res) => {
@@ -54,7 +71,7 @@ places.put("/:id", (req, res) => {
 places.delete("/:id", (req, res) => {
   db.Place.findByIdAndDelete(req.params.id)
     .then((place) => {
-      res.redirect("/places", { place });
+      res.redirect("/places");
     })
     .catch((err) => {
       console.log("err", err);
