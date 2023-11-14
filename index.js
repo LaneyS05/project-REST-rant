@@ -24,7 +24,7 @@ app.use("/places", placesController);
 
 // ROUTES
 app.get("/", (req, res) => {
-  res.render("Home");
+  res.render("home");
 });
 
 app.get("*", (req, res) => {
