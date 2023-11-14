@@ -122,7 +122,7 @@ places.post("/:id/rant", (req, res) => {
   res.send("GET /places/:id/rant stub");
 });
 
-router.delete("/:id/comment/:commentId", (req, res) => {
+places.delete("/:id/comment/:commentId", (req, res) => {
   db.Comment.findByIdAndDelete(req.params.commentId)
     .then(() => {
       console.log("Success");
